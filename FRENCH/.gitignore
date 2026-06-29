@@ -1,6 +1,7 @@
 ferris.css
 ferris.js
-theme
+theme/*
+!theme/head.hbs
 book
 
 *.gitignore.*
