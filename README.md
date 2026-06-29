@@ -37,6 +37,41 @@ See the [releases] to download just the code of all the code listings that appea
 
 [releases]: https://github.com/rust-lang/book/releases
 
+## PWA (Progressive Web App)
+
+Ce livre est installable comme application Android (et iOS) grâce à un support PWA ajouté dans `FRENCH/`.
+
+### Fichiers ajoutés
+
+| Fichier | Rôle |
+|---|---|
+| `FRENCH/src/manifest.json` | Manifeste PWA (icônes, couleurs, mode plein écran) |
+| `FRENCH/src/sw.js` | Service worker (cache stale-while-revalidate, offline) |
+| `FRENCH/src/icon-192.png` | Icône 192×192 |
+| `FRENCH/src/icon-512.png` | Icône 512×512 (aussi utilisée comme maskable) |
+| `pwa.js` | Injection du manifest et enregistrement du SW (via `additional-js`) |
+
+### Seule valeur à ajuster si vous renommez le dépôt
+
+**Rien à changer.** Le base path (`/rust-book-fr/`) est auto-détecté depuis l'URL du script `pwa.js`. Les URLs dans `manifest.json` sont relatives, résolues par rapport à l'URL du manifest. Cela fonctionne quelle que soit l'URL de déploiement (sous-répertoire GitHub Pages ou domaine custom).
+
+Si vous souhaitez remplacer les icônes par des icônes personnalisées, remplacez simplement `FRENCH/src/icon-192.png` et `FRENCH/src/icon-512.png` et incrémentez `CACHE_VERSION` dans `FRENCH/src/sw.js` pour invalider le cache des utilisateurs existants.
+
+### Installer l'app (Android Chrome)
+
+1. Ouvrir le site dans Chrome Android
+2. Menu ⋮ → "Ajouter à l'écran d'accueil"
+3. L'app s'ouvre ensuite en plein écran sans barre d'adresse
+4. Les pages déjà visitées sont disponibles hors-ligne
+
+### Vérification après déploiement
+
+Après un push sur la branche de déploiement, GitHub Pages se redéploie automatiquement (quelques minutes). Pour tester :
+
+1. Ouvrir le site dans Chrome DevTools → onglet "Application" → vérifier Manifest et Service Worker
+2. Sur mobile : vider le cache Chrome, recharger, puis "Ajouter à l'écran d'accueil"
+3. Ouvrir depuis l'écran d'accueil → doit s'ouvrir sans barre d'adresse (display: standalone)
+
 ## Requirements
 
 Building the book requires [mdBook], ideally the same version that
