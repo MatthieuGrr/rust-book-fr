@@ -1,30 +1,19 @@
 {
+  "id": "/rust-book-fr/",
   "name": "Le langage de programmation Rust",
   "short_name": "Rust Book FR",
   "description": "La traduction française du livre officiel Rust",
-  "start_url": ".",
-  "scope": ".",
+  "start_url": "/rust-book-fr/",
+  "scope": "/rust-book-fr/",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#1a1a1a",
   "theme_color": "#CE422B",
   "lang": "fr",
+  "prefer_related_applications": false,
   "icons": [
-    {
-      "src": "icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
   ]
 }
