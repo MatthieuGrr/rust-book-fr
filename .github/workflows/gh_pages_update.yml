@@ -3,7 +3,7 @@ name: gh_pages_update
 on:
   push:
     branches:
-      - french-unreleased
+      - french-release
 
 jobs:
   publish-book:
@@ -34,4 +34,4 @@ jobs:
         with:
           deploy_dir: FRENCH/book
           github_token: "${{ secrets.GITHUB_TOKEN }}"
-        if: github.ref == 'refs/heads/french-unreleased'
+        if: github.ref == 'refs/heads/french-release'
