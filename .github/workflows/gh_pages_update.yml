@@ -32,13 +32,6 @@ jobs:
       - name: Build
         run: mdbook build FRENCH
 
-      - name: Inject PWA tags into HTML head
-        run: |
-          BASE_PATH="/${GITHUB_REPOSITORY#*/}"
-          find FRENCH/book -name "*.html" -exec sed -i \
-            "s|</head>|<link rel=\"manifest\" href=\"${BASE_PATH}/manifest.json\"><meta name=\"theme-color\" content=\"#CE422B\"><link rel=\"apple-touch-icon\" href=\"${BASE_PATH}/icon-192.png\"></head>|" \
-            {} \;
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
